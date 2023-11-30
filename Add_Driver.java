@@ -33,19 +33,31 @@ public class Add_Driver extends JFrame
         setTitle("PAJ: ADD DRIVER");
         pCommand = new JPanel();
         pDisplay = new JPanel();
-
-        driverlist = loadDrivers("Drivers.txt");
+        setBounds(300, 90, 800, 500);
+        driverlist = loadDrivers("Text Files//Drivers.txt");
 
         // to display Application Header
-        JLabel apHeader = new JLabel("PAJ: ADD DRIVER");
-        apHeader.setFont(new Font("Georgia", Font.BOLD, 18));
-        pDisplay.add(apHeader);
+        
+        pDisplay.setBackground(new Color(0xa7dbd8));
+        pCommand.setBackground(new Color(0xa7dbd8));
+        setForeground(new Color(0xa7dbd8));
+        File imageFile = new File("A-Jamaica.png");
+        ImageIcon icon = new ImageIcon(imageFile.getAbsolutePath());
+        icon = new ImageIcon(imageFile.getAbsolutePath());
+        Image img = icon.getImage().getScaledInstance(250, 75, Image.SCALE_SMOOTH);//Adjust Logo to fit in frame
+        icon = new ImageIcon(img);
+    
+        JLabel label = new JLabel(icon, SwingConstants.CENTER);
+        label.setForeground(new Color(0x79b5ac));
+        add(label, BorderLayout.NORTH);
+        label.setBounds(300, 90, 350,100);
+        
 
         pDisplay.add(new JLabel("First Name:"));
         txtfname = new JTextField(30);
         pDisplay.add(txtfname);
     
-        pDisplay.add(new JLabel("Sirname:"));
+        pDisplay.add(new JLabel("Surname:"));
         txtsname = new JTextField(30);
         pDisplay.add(txtsname);
 
@@ -56,6 +68,7 @@ public class Add_Driver extends JFrame
         fbutton.setHorizontalAlignment(SwingConstants.LEFT);
         mbutton = new JRadioButton("Male");
         mbutton.setHorizontalAlignment(SwingConstants.LEFT);
+        pnl.setBackground(new Color(0xa7dbd8));
         ButtonGroup bgroup = new ButtonGroup();
         bgroup.add(mbutton);
         bgroup.add(fbutton);
@@ -95,8 +108,8 @@ public class Add_Driver extends JFrame
         cmdCancel.setBackground(Color.red);
         pCommand.add(cmdCancel);
 
-        pDisplay.setLayout(new GridLayout(34, 1));
-        setPreferredSize(new Dimension(1620, 1080));
+        pDisplay.setLayout(new GridLayout(10, 2));
+        
 
         add(pDisplay, BorderLayout.CENTER);
         add(pCommand, BorderLayout.SOUTH);
@@ -158,7 +171,7 @@ public class Add_Driver extends JFrame
         try
         {
             // creates a file named stud_records.txt
-            File file = new File("Drivers.txt");
+            File file = new File("Text Files//Drivers.txt");
 
             // needed in order to handle appending data to file if file already exists:
             FileWriter fileWriter = new FileWriter(file, file.exists());
@@ -233,8 +246,13 @@ public class Add_Driver extends JFrame
     {
         public void actionPerformed(ActionEvent actev) 
         {
-            add_driver.setVisible(false);
+            dispose();
+            new Menu();
         }
 
     }
+    public static void main(String[] args) 
+    {
+        Add_Driver add_driver = new Add_Driver();
+    }   
 }

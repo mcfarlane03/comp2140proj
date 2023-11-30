@@ -28,7 +28,7 @@ public class Delete_Truck extends JFrame
     public Delete_Truck () 
     {
         delete_truck = this;
-        trucklist = loadTrucks("Trucks.txt");
+        trucklist = loadTrucks("Text Files//Trucks.txt");
 
         setTitle("PAJ: DELETE TRUCK");
         pCommand = new JPanel();
@@ -97,9 +97,9 @@ public class Delete_Truck extends JFrame
                 trucklist.remove(i);
                 try 
                 {
-                    File file = new File("Trucks.txt");
+                    File file = new File("Text Files//Trucks.txt");
                     file.delete();// deletes the existing file
-                    File file_ = new File("Trucks.txt"); // re creates it to be filled with the updates                                                      // information
+                    File file_ = new File("Text Files//Trucks.txt"); // re creates it to be filled with the updates                                                      // information
                     FileWriter fileWriter = new FileWriter(file, file_.exists());
                     BufferedWriter output = new BufferedWriter(fileWriter);
                     for (Truck s_ : trucklist) 

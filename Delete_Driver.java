@@ -14,7 +14,9 @@ import java.io.BufferedWriter;
 
 public class Delete_Driver extends JFrame
 {
+    private Container c;  
     private Driver driver;
+    private JPanel logoPanel;
     private int ID;
     private ArrayList<Driver> driverlist = new ArrayList<Driver>();
 
@@ -26,37 +28,75 @@ public class Delete_Driver extends JFrame
 
     public Delete_Driver() 
     {
+        super("PAJ: DELETE DRIVER");
         delete_driver = this;
-        driverlist = loadDrivers("Drivers.txt");
-
+        driverlist = loadDrivers("Text Files//Drivers.txt");
+        c = getContentPane();
+        c.setLayout(null);
         //this.add_driver = add_driver;
-        setTitle("PAJ: DELETE DRIVER");
+       
+       
+        c = getContentPane();
+        c.setLayout(null);
         pCommand = new JPanel();
         pDisplay = new JPanel();
+        logoPanel = new JPanel();
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        // setLayout(new GridLayout(3, 1));
+       
+        setBounds(300, 90, 800, 500);
 
-        // to display Application Header
-        JLabel apHeader = new JLabel("PAJ: DELETE DRIVER");
-        apHeader.setFont(new Font("Georgia", Font.BOLD, 18));
-        pDisplay.add(apHeader);
+      
+      
+   
+        File imageFile = new File("A-Jamaica.png");
+        ImageIcon icon = new ImageIcon(imageFile.getAbsolutePath());
+        logoPanel.setBackground(new Color(0xa7dbd8));
+        icon = new ImageIcon(imageFile.getAbsolutePath());
+        Image img = icon.getImage().getScaledInstance(250, 75, Image.SCALE_SMOOTH);//Adjust Logo to fit in frame
+        icon = new ImageIcon(img);
+        JLabel label = new JLabel(icon, JLabel.CENTER);
+        logoPanel.add(label);
+        logoPanel.setSize(375, 100);
+        logoPanel.setLocation(200, 50);
+        c.add(logoPanel);
+        
+       
+        JLabel adminName = new JLabel("Identification Number:");
+        adminName.setFont(new Font("Arial", Font.PLAIN, 20));
+        adminName.setSize(200, 20);
+        adminName.setLocation(100, 250);
+        c.add(adminName);
 
-        pDisplay.add(new JLabel("ID:"));
-        txtID = new JTextField(9);
-        pDisplay.add(txtID);
+        txtID = new JTextField();
+        txtID.setFont(new Font("Arial", Font.PLAIN, 15));
+        txtID.setSize(400, 30);
+        txtID.setLocation(300, 250);
+        c.add(txtID);
+        
+        c.setBackground(new Color(0xa7dbd8));
 
+
+    
         cmdSubmit = new JButton("Submit");
-        cmdSubmit.setBackground(Color.green);
-        pCommand.add(cmdSubmit);
+        cmdSubmit.setBackground(new Color(0xf38630));
+        cmdSubmit.setSize(100, 30);
+        cmdSubmit.setLocation(250, 350);
+        c.add(cmdSubmit);
 
         cmdCancel = new JButton("Cancel");
+        cmdCancel.setSize(100, 30);
+        cmdCancel.setLocation(400, 350);
         cmdCancel.setBackground(Color.red);
-        pCommand.add(cmdCancel);
+        c.add(cmdCancel);
 
-        pDisplay.setLayout(new GridLayout(34, 1));
-        setPreferredSize(new Dimension(1620, 1080));
-
-        add(pDisplay, BorderLayout.CENTER);
-        add(pCommand, BorderLayout.SOUTH);
-        pack();
+       
+        // pDisplay.setLayout(new GridLayout(34, 1));
+        // setPreferredSize(new Dimension(1620, 1080));
+       
+        
         setVisible(true);
 
         cmdSubmit.addActionListener(new SubmitButtonListener());
@@ -102,9 +142,9 @@ public class Delete_Driver extends JFrame
                 driverlist.remove(i);
                 try 
                 {
-                    File file = new File("Drivers.txt");
+                    File file = new File("Text Files//Drivers.txt");
                     file.delete();// deletes the existing file
-                    File file_ = new File("Drivers.txt"); // re creates it to be filled with the updates                                                      // information
+                    File file_ = new File("Text Files//Drivers.txt"); // re creates it to be filled with the updates                                                      // information
                     FileWriter fileWriter = new FileWriter(file, file_.exists());
                     BufferedWriter output = new BufferedWriter(fileWriter);
                     for (Driver s_ : driverlist) 
@@ -162,6 +202,10 @@ public class Delete_Driver extends JFrame
         {
             delete_driver.setVisible(false);
         }
+    }
+    public static void main(String[] args) 
+    {
+        Delete_Driver delete_driver = new Delete_Driver();
     }
 }
 

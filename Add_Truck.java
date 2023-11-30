@@ -31,7 +31,7 @@ public class Add_Truck extends JFrame
         pCommand = new JPanel();
         pDisplay = new JPanel();
 
-        trucklist = loadTrucks("Trucks.txt");
+        trucklist = loadTrucks("Text Files//Trucks.txt");
 
         // to display Application Header
         JLabel apHeader = new JLabel("PAJ: ADD TRUCK");
@@ -103,7 +103,7 @@ public class Add_Truck extends JFrame
         try
         {
             // creates a file named stud_records.txt
-            File file = new File("Trucks.txt");
+            File file = new File("Text Files//Trucks.txt");
 
             // needed in order to handle appending data to file if file already exists:
             FileWriter fileWriter = new FileWriter(file, file.exists());
