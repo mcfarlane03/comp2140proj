@@ -185,9 +185,9 @@ public class Menu extends JFrame
                 new Delete_Assigned_Jobs();
                 dispose();
             }
-            // else if (g.getSource() == cmdReport){
-            //     Driver_Report driver_report = new Driver_Report();
-            // }
+            else if (g.getSource() == cmdReport){
+                JOptionPane.showMessageDialog(null, "Not yet implemented");
+            }
             else if (g.getSource() == cmdEdit_Admin_Password){
                 new Edit_Admin_Password();
                 dispose();
