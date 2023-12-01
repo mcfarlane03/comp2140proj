@@ -102,17 +102,18 @@ public class Delete_Driver extends JFrame
         cmdCancel.addActionListener(new CancelButtonListener());
     }
 
-    private ArrayList<Driver> loadDrivers(String dfile){
-        Scanner dscan = null;
-        ArrayList<Driver> drivers = new ArrayList<Driver>();
-
-        try{
-            dscan = new Scanner(new File(dfile));
-            while (dscan.hasNext()) 
+    private ArrayList<Driver> loadDrivers(String dfile) 
+    {
+        Scanner scanner = null;
+        ArrayList<Driver> driverlist = new ArrayList<Driver>();
+        try 
+        {
+            scanner = new Scanner(new File(dfile));
+            while (scanner.hasNext()) 
             {
-                String [] nextLine = dscan.nextLine().split(",");
+                String[] nextLine = scanner.nextLine().split(" ");
                 String fname = nextLine[0];
-                String lname = nextLine[1];
+                String sname = nextLine[1];
                 String gender = nextLine[2];
                 String tphone = nextLine[3];
                 String email = nextLine[4];
@@ -120,19 +121,14 @@ public class Delete_Driver extends JFrame
                 int age = Integer.parseInt(nextLine[6]);
                 int ID = Integer.parseInt(nextLine[7]);
                 int lclass = Integer.parseInt(nextLine[8]);
-
-                Driver d = new Driver(fname, lname, gender, tphone, email, ltype, age, ID, lclass);
-                drivers.add(d);
-
+                Driver driver = new Driver(fname, sname, gender, tphone, email, ltype, age, ID, lclass);
+                driverlist.add(driver);
             }
-
-            dscan.close();
+            scanner.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
-        catch(FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, "File not found");
-        }
-
-        return drivers;
+        return driverlist;
     }
 
     private int remove(ArrayList<Driver> driverlist) 
@@ -159,8 +155,8 @@ public class Delete_Driver extends JFrame
                     }
                     output.close();
                     fileWriter.close();
+                    return 0;
 
-                    return 0; 
                 } catch (NumberFormatException nfe) 
                 {
                     System.out.println(nfe.getMessage());
@@ -183,29 +179,24 @@ public class Delete_Driver extends JFrame
             try 
             {
                 ID = Integer.parseInt(txtID.getText());
-                noerror = true;
-            } catch (NumberFormatException numformerror) 
-            {
-                JOptionPane.showMessageDialog(null, "Please enter a valid ID");
-            } 
-            catch (ArrayIndexOutOfBoundsException indexouterror) 
-            {
-                System.out.println(indexouterror.getMessage());
-            } 
-            finally 
-            {
-                if (remove(driverlist) == 1)
-                {
-                    JOptionPane.showMessageDialog(null, "Driver does not exist");
-                }
-                else
+                if (remove(driverlist) == 0)
+                
                 {
                     JOptionPane.showMessageDialog(null, "Driver deleted");
                     new Menu();
                     dispose();
+                    
                 }
-            }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Driver does not exist");
+                }
             
+            } 
+            catch (Exception e) 
+            {
+                JOptionPane.showMessageDialog(null, "Error adding Driver.");
+            }
         }
     }
 

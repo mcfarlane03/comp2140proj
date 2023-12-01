@@ -186,7 +186,7 @@ public class Menu extends JFrame
                 dispose();
             }
             else if (g.getSource() == cmdReport){
-                JOptionPane.showMessageDialog(null, "Not yet implemented");
+                JOptionPane.showMessageDialog(null, "Not yet implemented.");
             }
             else if (g.getSource() == cmdEdit_Admin_Password){
                 new Edit_Admin_Password();

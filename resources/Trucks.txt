@@ -1,1 +1,3 @@
-Nissan,Kei Truck,C08976,3000
+White Daihatsu Ch4453 3000
+Black Toyota CH0987 4000
+Grey Ford CP9876 3000
