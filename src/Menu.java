@@ -194,7 +194,7 @@ public class Menu extends JFrame
             }
             else if (g.getSource() == cmdAdmin_Logout){
                 dispose();
-                new Admin_Login().setVisible(true);
+                new Application();
             }
         }
 
