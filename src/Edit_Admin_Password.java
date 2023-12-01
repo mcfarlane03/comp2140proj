@@ -126,7 +126,7 @@ public class Edit_Admin_Password extends JFrame{
                     System.out.println("Error: " + ex.getMessage());
                 }
                 dispose();
-                Menu menu = new Menu();
+                new Application();
             }
             else{
                 System.out.println("Error: Passwords do not match");
