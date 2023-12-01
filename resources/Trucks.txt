@@ -1,1 +1,1 @@
-Nissan,KeiTruck,C08976,3000
+Nissan,Kei Truck,C08976,3000
