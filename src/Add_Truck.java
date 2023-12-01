@@ -105,7 +105,7 @@ public class Add_Truck extends JFrame
             scanner = new Scanner(new File(dfile));
             while (scanner.hasNext()) 
             {
-                String[] nextLine = scanner.nextLine().split(" ");
+                String[] nextLine = scanner.nextLine().split(",");
                 String truckdesc = nextLine[0];
                 String ttype = nextLine[1];
                 String ID = nextLine[2];

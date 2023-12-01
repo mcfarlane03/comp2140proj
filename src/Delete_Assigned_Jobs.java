@@ -208,7 +208,7 @@ public class Delete_Assigned_Jobs extends JFrame{
             dscan = new Scanner(new File(dfile));
             while (dscan.hasNext()) 
             {
-                String [] nextLine = dscan.nextLine().split(" ");
+                String [] nextLine = dscan.nextLine().split(",");
                 String fname = nextLine[0];
                 String lname = nextLine[1];
                 String gender = nextLine[2];
@@ -241,7 +241,7 @@ public class Delete_Assigned_Jobs extends JFrame{
             tscan = new Scanner(new File(tfile));
             while (tscan.hasNext()) 
             {
-                String [] nextLine = tscan.nextLine().split(" ");
+                String [] nextLine = tscan.nextLine().split(",");
                 String truckdesc = nextLine[0];
                 String ttype = nextLine[1];
                 String ID = nextLine[2];

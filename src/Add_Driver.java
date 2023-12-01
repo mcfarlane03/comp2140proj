@@ -157,7 +157,7 @@ public class Add_Driver extends JFrame
             scanner = new Scanner(new File(dfile));
             while (scanner.hasNext()) 
             {
-                String[] nextLine = scanner.nextLine().split(" ");
+                String[] nextLine = scanner.nextLine().split(",");
                 String fname = nextLine[0];
                 String sname = nextLine[1];
                 String gender = nextLine[2];

@@ -54,7 +54,7 @@ public class Truck
 
     public String toString() 
     {
-        return getTruckdesc() + " " + getTtype()  + " " + getID() + " " + getWclass();
+        return getTruckdesc() + "," + getTtype()  + "," + getID() + "," + getWclass();
     }
 
     public boolean compareTo(Truck other) {

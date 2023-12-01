@@ -102,18 +102,17 @@ public class Delete_Driver extends JFrame
         cmdCancel.addActionListener(new CancelButtonListener());
     }
 
-    private ArrayList<Driver> loadDrivers(String dfile) 
-    {
-        Scanner scanner = null;
-        ArrayList<Driver> driverlist = new ArrayList<Driver>();
-        try 
-        {
-            scanner = new Scanner(new File(dfile));
-            while (scanner.hasNext()) 
+    private ArrayList<Driver> loadDrivers(String dfile){
+        Scanner dscan = null;
+        ArrayList<Driver> drivers = new ArrayList<Driver>();
+
+        try{
+            dscan = new Scanner(new File(dfile));
+            while (dscan.hasNext()) 
             {
-                String[] nextLine = scanner.nextLine().split(" ");
+                String [] nextLine = dscan.nextLine().split(",");
                 String fname = nextLine[0];
-                String sname = nextLine[1];
+                String lname = nextLine[1];
                 String gender = nextLine[2];
                 String tphone = nextLine[3];
                 String email = nextLine[4];
@@ -121,14 +120,19 @@ public class Delete_Driver extends JFrame
                 int age = Integer.parseInt(nextLine[6]);
                 int ID = Integer.parseInt(nextLine[7]);
                 int lclass = Integer.parseInt(nextLine[8]);
-                Driver driver = new Driver(fname, sname, gender, tphone, email, ltype, age, ID, lclass);
-                driverlist.add(driver);
+
+                Driver d = new Driver(fname, lname, gender, tphone, email, ltype, age, ID, lclass);
+                drivers.add(d);
+
             }
-            scanner.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+
+            dscan.close();
         }
-        return driverlist;
+        catch(FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "File not found");
+        }
+
+        return drivers;
     }
 
     private int remove(ArrayList<Driver> driverlist) 

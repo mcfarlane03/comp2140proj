@@ -127,8 +127,8 @@ public class Assign_Jobs extends JFrame {
 
     private void addJob() {
         String jobdesc = jobdescField.getText();
-        int driverId = Integer.parseInt(driverComboBox.getSelectedItem().toString().split(" ")[3].replace(")", ""));
-        String truckId = truckComboBox.getSelectedItem().toString().split(" ")[3].replace(")", "");
+        int driverId = Integer.parseInt(driverComboBox.getSelectedItem().toString().split(",")[3].replace(")", ""));
+        String truckId = truckComboBox.getSelectedItem().toString().split(",")[3].replace(")", "");
         int load = Integer.parseInt(loadField.getText());
         String destination = destinationField.getText();
         String departureTime = departureTimeField.getText();
@@ -233,7 +233,7 @@ public class Assign_Jobs extends JFrame {
             dscan = new Scanner(new File(dfile));
             while (dscan.hasNext()) 
             {
-                String [] nextLine = dscan.nextLine().split(" ");
+                String [] nextLine = dscan.nextLine().split(",");
                 String fname = nextLine[0];
                 String lname = nextLine[1];
                 String gender = nextLine[2];
@@ -266,7 +266,7 @@ public class Assign_Jobs extends JFrame {
             tscan = new Scanner(new File(tfile));
             while (tscan.hasNext()) 
             {
-                String [] nextLine = tscan.nextLine().split(" ");
+                String [] nextLine = tscan.nextLine().split(",");
                 String truckdesc = nextLine[0];
                 String ttype = nextLine[1];
                 String ID = nextLine[2];

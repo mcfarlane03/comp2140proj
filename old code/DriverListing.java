@@ -108,7 +108,7 @@ public class DriverListing extends JFrame {
             dscan = new Scanner(new File(dfile));
             while (dscan.hasNext()) 
             {
-                String [] nextLine = dscan.nextLine().split(" ");
+                String [] nextLine = dscan.nextLine().split(",");
                 String fname = nextLine[0];
                 String lname = nextLine[1];
                 String gender = nextLine[2];

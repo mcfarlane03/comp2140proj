@@ -99,7 +99,7 @@ public class Edit_Assigned_Jobs extends JFrame {
 
         JPanel panel2 = new JPanel(new GridLayout(1, 2));
 
-        JLabel jobLabel = new JLabel("Job ID:");
+        JLabel jobLabel = new JLabel("Job:");
         panel1.add(jobLabel);
 
         // Create the job description label and text field
@@ -357,7 +357,7 @@ public class Edit_Assigned_Jobs extends JFrame {
             dscan = new Scanner(new File(dfile));
             while (dscan.hasNext()) 
             {
-                String [] nextLine = dscan.nextLine().split(" ");
+                String [] nextLine = dscan.nextLine().split(",");
                 String fname = nextLine[0];
                 String lname = nextLine[1];
                 String gender = nextLine[2];
@@ -376,7 +376,7 @@ public class Edit_Assigned_Jobs extends JFrame {
             dscan.close();
         }
         catch(FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Driver File not found");
+            JOptionPane.showMessageDialog(null, "File not found");
         }
 
         return drivers;
@@ -390,7 +390,7 @@ public class Edit_Assigned_Jobs extends JFrame {
             tscan = new Scanner(new File(tfile));
             while (tscan.hasNext()) 
             {
-                String [] nextLine = tscan.nextLine().split(" ");
+                String [] nextLine = tscan.nextLine().split(",");
                 String truckdesc = nextLine[0];
                 String ttype = nextLine[1];
                 String ID = nextLine[2];

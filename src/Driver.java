@@ -109,8 +109,8 @@ public class Driver implements Comparable<Driver>
 
     public String toString() 
     {
-        return getFname() + " " + getSname() + " " + getGender() + " " + getTphone() + " " + getEmail() + " " + getLtype() + " " + getAge()
-                + " " + getID() + " " + getLclass();
+        return getFname() + "," + getSname() + "," + getGender() + "," + getTphone() + "," + getEmail() + "," + getLtype() + "," + getAge()
+                + "," + getID() + "," + getLclass();
     }
 
     @Override

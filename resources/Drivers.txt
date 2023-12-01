@@ -1,5 +1,5 @@
-Bob Marley male 8767682435 yooo@yahoo.com yooo 34 123 4300
-Test Person female 8769046252 jfoj049@yerrr.com 12 32 12 2000
-Fab Will male 567890611 yo@ueue 1234 76 222 10929
-Abb McC female 882743724 9u89h@uihu.com 1234 9776 124452 2000
-Test One male 123456789 weal@yh.com CC 987 9876 6797
+Bob,Marley,male,8767682435,yooo@yahoo.com,yooo,34,123,4300
+Test,Person,female,8769046252,jfoj049@yerrr.com,12,32,12,2000
+Fab,Will,male,567890611,yo@ueue,1234,76,222,10929
+Abb,McC,female,882743724,9u89h@uihu.com,123,9776,124452,2000
+Test,One,male,123456789,weal@yh.com,CC,987,9876,6797
