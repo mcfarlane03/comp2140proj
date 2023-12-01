@@ -172,7 +172,8 @@ public class Add_Truck extends JFrame
                 ID = txtID.getText();
                 wclass = Integer.parseInt(txtwclass.getText());
                 noerror = true;
-            } catch (NumberFormatException numformerror) 
+            }
+            catch (NumberFormatException numformerror) 
             {
                 System.out.println(numformerror.getMessage());
             } 
@@ -186,10 +187,15 @@ public class Add_Truck extends JFrame
                 {
                     truck = new Truck(truckdesc, ttype, ID, wclass);
                     addTruck(truck);
+                    new Menu();
+                    dispose();
+                } 
+                else 
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please try again.");
                 }
 
             }
-            add_truck.setVisible(false);
         }
     }
 

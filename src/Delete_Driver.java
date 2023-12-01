@@ -156,6 +156,7 @@ public class Delete_Driver extends JFrame
                     output.close();
                     fileWriter.close();
                     return 0;
+
                 } catch (NumberFormatException nfe) 
                 {
                     System.out.println(nfe.getMessage());
@@ -178,26 +179,23 @@ public class Delete_Driver extends JFrame
             try 
             {
                 ID = Integer.parseInt(txtID.getText());
-                remove(driverlist);
+                if (remove(driverlist) == 0)
+                
+                {
+                    JOptionPane.showMessageDialog(null, "Driver deleted");
+                    new Menu();
+                    dispose();
+                    
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Driver does not exist");
+                }
             
             } 
             catch (Exception e) 
             {
                 JOptionPane.showMessageDialog(null, "Error adding Driver.");
-            }
-
-            finally 
-            {
-                if (remove(driverlist) == 1)
-                {
-                    JOptionPane.showMessageDialog(null, "Driver does not exist");
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Driver deleted");
-                    new Menu();
-                    dispose();
-                }
             }
         }
     }

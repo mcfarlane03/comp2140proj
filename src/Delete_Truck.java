@@ -162,24 +162,10 @@ public class Delete_Truck extends JFrame
     {
         public void actionPerformed(ActionEvent actev) 
         {
-            boolean noerror = false;
             try 
             {
                 ID = txtID.getText();
-                noerror = true;
-            } catch (NumberFormatException numformerror) 
-            {
-                System.out.println(numformerror.getMessage());
-            } 
-            catch (ArrayIndexOutOfBoundsException indexouterror) 
-            {
-                System.out.println(indexouterror.getMessage());
-            } 
-            finally 
-            {
-                if (noerror == true) 
-                {
-                    if (remove(trucklist) == 0) 
+                if (remove(trucklist) == 0) 
                     {
                         JOptionPane.showMessageDialog(null, "Truck deleted successfully");
                         new Menu();
@@ -189,8 +175,13 @@ public class Delete_Truck extends JFrame
                     {
                         JOptionPane.showMessageDialog(null, "Truck not found");
                     }
-                }
-
+            } catch (NumberFormatException numformerror) 
+            {
+                System.out.println(numformerror.getMessage());
+            } 
+            catch (ArrayIndexOutOfBoundsException indexouterror) 
+            {
+                System.out.println(indexouterror.getMessage());
             }
             // delete_truck.setVisible(false);
         }
