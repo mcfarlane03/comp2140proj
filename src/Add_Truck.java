@@ -144,6 +144,7 @@ public class Add_Truck extends JFrame
             // adding new line for next record to be appended:
             if (file.exists())
                 output.newLine();
+                
                 JOptionPane.showMessageDialog(null, "Your data has been recorded.");
 
             output.close();

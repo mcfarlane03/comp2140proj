@@ -36,7 +36,7 @@ public class Add_Driver extends JFrame
         pCommand = new JPanel();
         pDisplay = new JPanel();
         setBounds(300, 90, 800, 500);
-        driverlist = loadDrivers("resources\\Drivers.txt");
+        driverlist = loadDrivers("resources//Drivers.txt");
 
         // to display Application Header
         
@@ -177,7 +177,7 @@ public class Add_Driver extends JFrame
         return driverlist;
     }
 
-    public void addDriver(Driver driver) 
+    public int addDriver(Driver driver) 
     {
         try
         {
@@ -197,6 +197,7 @@ public class Add_Driver extends JFrame
                 }
             }
             output.write(driver.toString());
+            
 
             // adding new line for next record to be appended:
             if (file.exists())
@@ -205,6 +206,8 @@ public class Add_Driver extends JFrame
 
             output.close();
             fileWriter.close();
+            return 1;
+
         } 
         catch (NumberFormatException nfe) 
         {
@@ -214,6 +217,7 @@ public class Add_Driver extends JFrame
         {
             System.out.println(ioe.getMessage());
         }
+        return 0;
     }
     
     private class SubmitButtonListener implements ActionListener 
@@ -246,10 +250,18 @@ public class Add_Driver extends JFrame
                 if (noerror == true) 
                 {
                     driver = new Driver(fname, sname, gender, tphone, email, ltype, age, ID, lclass);   
-                    addDriver(driver);
+                    if (addDriver(driver) == 1)
+                    {
+                        dispose();
+                        new Menu();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Error adding driver");
+                    }
                 }
             }
-            add_driver.setVisible(false);
+            
         }
     }
 

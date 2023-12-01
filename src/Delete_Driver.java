@@ -131,7 +131,7 @@ public class Delete_Driver extends JFrame
         return driverlist;
     }
 
-    private void remove(ArrayList<Driver> driverlist) 
+    private int remove(ArrayList<Driver> driverlist) 
     {
         String text_;
         for (int i = 0; i < driverlist.size(); i++) 
@@ -155,6 +155,7 @@ public class Delete_Driver extends JFrame
                     }
                     output.close();
                     fileWriter.close();
+                    return 0;
                 } catch (NumberFormatException nfe) 
                 {
                     System.out.println(nfe.getMessage());
@@ -165,6 +166,8 @@ public class Delete_Driver extends JFrame
                 }
             }
         }
+
+        return 1;
     }
 
     private class SubmitButtonListener implements ActionListener 
@@ -175,23 +178,27 @@ public class Delete_Driver extends JFrame
             try 
             {
                 ID = Integer.parseInt(txtID.getText());
-                noerror = true;
-            } catch (NumberFormatException numformerror) 
-            {
-                System.out.println(numformerror.getMessage());
+                remove(driverlist);
+            
             } 
-            catch (ArrayIndexOutOfBoundsException indexouterror) 
+            catch (Exception e) 
             {
-                System.out.println(indexouterror.getMessage());
-            } 
+                JOptionPane.showMessageDialog(null, "Error adding Driver.");
+            }
+
             finally 
             {
-                if (noerror == true) 
+                if (remove(driverlist) == 1)
                 {
-                    remove(driverlist);
+                    JOptionPane.showMessageDialog(null, "Driver does not exist");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Driver deleted");
+                    new Menu();
+                    dispose();
                 }
             }
-            delete_driver.setVisible(false);
         }
     }
 
