@@ -120,7 +120,7 @@ public class Delete_Truck extends JFrame
         return trucklist;
     }
 
-    private void remove(ArrayList<Truck> trucklist) 
+    private int remove(ArrayList<Truck> trucklist) 
     {
         String text_;
         for (int i = 0; i < trucklist.size(); i++) 
@@ -152,8 +152,10 @@ public class Delete_Truck extends JFrame
                 {
                     System.out.println(ioe.getMessage());
                 }
+                return 0;
             }
         }
+        return 1;
     }
 
     private class SubmitButtonListener implements ActionListener 
@@ -177,11 +179,20 @@ public class Delete_Truck extends JFrame
             {
                 if (noerror == true) 
                 {
-                    remove(trucklist);
+                    if (remove(trucklist) == 0) 
+                    {
+                        JOptionPane.showMessageDialog(null, "Truck deleted successfully");
+                        new Menu();
+                        dispose();
+                    } 
+                    else 
+                    {
+                        JOptionPane.showMessageDialog(null, "Truck not found");
+                    }
                 }
 
             }
-            delete_truck.setVisible(false);
+            // delete_truck.setVisible(false);
         }
     }
 
